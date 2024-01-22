@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcg5ur2xej1ji"]
+
+[ext_resource type="Script" path="res://socketio.gd" id="1_18gs8"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_18gs8")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 48.0
+offset_top = 24.0
+offset_right = 56.0
+offset_bottom = 32.0
+text = "omygod"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

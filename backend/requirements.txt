@@ -1,0 +1,7 @@
+flask
+flask[async]
+Flask-SQLAlchemy
+psycopg2-binary
+Flask-JWT-Extended
+Flask-SocketIO
+numpy

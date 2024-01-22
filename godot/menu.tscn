@@ -1,0 +1,113 @@
+[gd_scene load_steps=6 format=3 uid="uid://b52tcb4qt0ims"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_hesn6"]
+[ext_resource type="Script" path="res://users_list.gd" id="2_nhx8g"]
+[ext_resource type="Script" path="res://logout.gd" id="3_wijvm"]
+[ext_resource type="Script" path="res://my_friends.gd" id="4_au25r"]
+[ext_resource type="Script" path="res://my_notifs.gd" id="4_ggwqo"]
+
+[node name="menu" type="Node2D"]
+script = ExtResource("1_hesn6")
+
+[node name="users" type="Node2D" parent="."]
+position = Vector2(-4, 32)
+script = ExtResource("2_nhx8g")
+
+[node name="user" type="Node2D" parent="users"]
+
+[node name="username" type="RichTextLabel" parent="users/user"]
+offset_left = 69.0
+offset_top = 26.0
+offset_right = 341.0
+offset_bottom = 215.0
+text = "Salut"
+
+[node name="add" type="Button" parent="users/user"]
+offset_left = 284.0
+offset_top = 26.0
+offset_right = 372.0
+offset_bottom = 57.0
+text = "add"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="users"]
+offset_left = 36.0
+offset_top = -23.0
+offset_right = 167.0
+offset_bottom = 76.0
+text = "Users
+"
+
+[node name="Logout" type="Node2D" parent="."]
+script = ExtResource("3_wijvm")
+
+[node name="Button" type="Button" parent="Logout"]
+offset_left = 1044.0
+offset_top = 16.0
+offset_right = 1140.0
+offset_bottom = 47.0
+text = "logout"
+
+[node name="my_friends" type="Node2D" parent="."]
+position = Vector2(344, 37)
+script = ExtResource("4_au25r")
+
+[node name="friend" type="Node2D" parent="my_friends"]
+
+[node name="username" type="RichTextLabel" parent="my_friends/friend"]
+offset_left = 69.0
+offset_top = 26.0
+offset_right = 341.0
+offset_bottom = 215.0
+text = "Salut"
+
+[node name="chat" type="Button" parent="my_friends/friend"]
+offset_left = 187.0
+offset_top = 24.0
+offset_right = 275.0
+offset_bottom = 55.0
+text = "chat"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="my_friends"]
+offset_left = 36.0
+offset_top = -23.0
+offset_right = 167.0
+offset_bottom = 76.0
+text = "Friends
+"
+
+[node name="my_notifs" type="Node2D" parent="."]
+position = Vector2(607, 42)
+script = ExtResource("4_ggwqo")
+
+[node name="notif" type="Node2D" parent="my_notifs"]
+
+[node name="username" type="RichTextLabel" parent="my_notifs/notif"]
+offset_left = 69.0
+offset_top = 26.0
+offset_right = 341.0
+offset_bottom = 215.0
+text = "Salut"
+
+[node name="deny" type="Button" parent="my_notifs/notif"]
+offset_left = 284.0
+offset_top = 26.0
+offset_right = 372.0
+offset_bottom = 57.0
+text = "deny"
+
+[node name="accept" type="Button" parent="my_notifs/notif"]
+offset_left = 187.0
+offset_top = 24.0
+offset_right = 275.0
+offset_bottom = 55.0
+text = "accept
+"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="my_notifs"]
+offset_left = 36.0
+offset_top = -23.0
+offset_right = 167.0
+offset_bottom = 76.0
+text = "Notifs"
+
+[connection signal="pressed" from="Logout/Button" to="Logout" method="_on_button_pressed"]

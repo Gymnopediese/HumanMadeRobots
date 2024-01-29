@@ -1,15 +1,20 @@
-import sys
-
 import random
+from copy import deepcopy
+from game.AIScript import *
+from game.Game import Game
 
-class TicTacToe:
+class TicTacToe(Game):
     
 	PLAYERAMMOUNT = 2
 
-	def __init__(self, players) -> None:
+	def __init__(self, players, playground=False) -> None:
+		super().__init__()
+		self.GAME_NAME = "TicTacToe"
 		self.players = random.shuffle(players)
 		self.board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
 		self.player = 1
+		self.playground = playground
+		self.history = []
 
 	def state(self):
 		return self.board
@@ -17,14 +22,15 @@ class TicTacToe:
 	def move(self, move):
 		try:
 			if self.board[int(move[0])][int(move[1])] != 0:
-				return False
+				raise Exception({"stderr": "invalid move: " + str(move)})
+			if self.playground:
+				self.history.append(deepcopy(self.board))
 			self.board[int(move[0])][int(move[1])] = self.player
 		except:
-			return False
+			raise Exception({"stderr": "invalid move: " + str(move)})
 		self.player += 1
-		if (self.player > self.PLAYERAMMOUNT):
+		if self.player > self.PLAYERAMMOUNT:
 			self.player = 1
-		return True
 
 	def check_win(self):
 		for i in range(3):
@@ -90,3 +96,11 @@ class TicTacToe:
 				minmax = min(minmax, self.rec((current_player) % 2 + 1, bot,  depth + 1))
 			self.board[move[0]][move[1]] = 0
 		return minmax
+
+	def undo(self):
+		if (len(self.history) == 0):
+			return 
+		self.board = self.history.pop()
+		self.player -= 1
+		if (self.player < 1):
+			self.player = self.PLAYERAMMOUNT

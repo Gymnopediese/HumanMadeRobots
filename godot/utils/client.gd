@@ -65,6 +65,7 @@ func on_socket_connect(_payload: Variant, _name_space, error: bool):
 	else:
 		print("Socket connected")
 	var token = Cookies.load()["token"]
+	print("token, ", token)
 	socketio_send("joinme", {"token": token})
 
 

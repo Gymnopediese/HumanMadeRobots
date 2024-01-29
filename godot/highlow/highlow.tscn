@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyosa5e7psxxk"]
+
+[ext_resource type="Script" path="res://highlow/highlow.gd" id="1_v0yeh"]
+[ext_resource type="Texture2D" uid="uid://bjc1uwouev6ml" path="res://highlow/card.png" id="2_1qe36"]
+
+[node name="tictactoe" type="Node2D"]
+script = ExtResource("1_v0yeh")
+
+[node name="card" type="TextureButton" parent="."]
+offset_left = -376.0
+offset_top = 136.0
+offset_right = -336.0
+offset_bottom = 200.0
+texture_normal = ExtResource("2_1qe36")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="card"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 16.0
+offset_right = 56.0
+offset_bottom = 64.0
+text = "10"
+text_direction = 1
+
+[node name="cards" type="Node2D" parent="."]
+
+[node name="1" type="Node2D" parent="cards"]
+position = Vector2(144, 464)
+
+[node name="2" type="Node2D" parent="cards"]
+position = Vector2(152, 96)
+
+[node name="3" type="Node2D" parent="cards"]
+position = Vector2(32, 200)
+
+[node name="4" type="Node2D" parent="cards"]
+position = Vector2(384, 320)

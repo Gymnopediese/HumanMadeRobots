@@ -1,3 +1,44 @@
-[gd_scene format=3 uid="uid://cdnnkdbeh3yqm"]
+[gd_scene load_steps=3 format=3 uid="uid://cdnnkdbeh3yqm"]
+
+[ext_resource type="Texture2D" uid="uid://d0bfd8hcmnnnq" path="res://icon.svg" id="1_norhr"]
+[ext_resource type="Script" path="res://game/games.gd" id="1_q441p"]
 
 [node name="games" type="Node2D"]
+script = ExtResource("1_q441p")
+
+[node name="game" type="Node2D" parent="."]
+
+[node name="image" type="TextureRect" parent="game"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_norhr")
+
+[node name="name" type="RichTextLabel" parent="game"]
+offset_left = 24.0
+offset_top = 128.0
+offset_right = 128.0
+offset_bottom = 168.0
+text = "TicTacToe"
+
+[node name="playground" type="Button" parent="game"]
+offset_left = 8.0
+offset_top = 208.0
+offset_right = 124.0
+offset_bottom = 239.0
+text = "AI playground"
+
+[node name="play" type="Button" parent="game"]
+offset_left = 8.0
+offset_top = 160.0
+offset_right = 124.0
+offset_bottom = 191.0
+text = "Play"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 256.0
+offset_top = 72.0
+offset_right = 360.0
+offset_bottom = 128.0
+text = "back"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,114 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmu0fhl6hrr3g"]
+
+[ext_resource type="Script" path="res://playground/playground.gd" id="1_6majf"]
+[ext_resource type="Script" path="res://playground/salut.gd" id="2_8i6yb"]
+
+[node name="playground" type="Node2D"]
+script = ExtResource("1_6majf")
+game = "Maze"
+
+[node name="playground" type="Node2D" parent="."]
+script = ExtResource("2_8i6yb")
+
+[node name="PlayAI" type="Button" parent="playground"]
+offset_left = 640.0
+offset_top = 584.0
+offset_right = 736.0
+offset_bottom = 616.0
+text = "play first"
+
+[node name="PlayAnime" type="Button" parent="playground"]
+offset_left = 744.0
+offset_top = 584.0
+offset_right = 864.0
+offset_bottom = 616.0
+text = "Play second"
+
+[node name="bestmove" type="Button" parent="playground"]
+offset_left = 760.0
+offset_top = 16.0
+offset_right = 873.0
+offset_bottom = 47.0
+text = "do best move
+"
+
+[node name="iamove" type="Button" parent="playground"]
+offset_left = 640.0
+offset_top = 16.0
+offset_right = 741.0
+offset_bottom = 48.0
+text = "play a move"
+
+[node name="printbestmove" type="Button" parent="playground"]
+offset_left = 928.0
+offset_top = 352.0
+offset_right = 1059.0
+offset_bottom = 383.0
+text = "print best move"
+
+[node name="printmybestmove" type="Button" parent="playground"]
+offset_left = 688.0
+offset_top = 352.0
+offset_right = 847.0
+offset_bottom = 384.0
+text = "print my best move"
+
+[node name="undo" type="Button" parent="playground"]
+offset_left = 888.0
+offset_top = 16.0
+offset_right = 975.0
+offset_bottom = 48.0
+text = "undo"
+
+[node name="reset" type="Button" parent="playground"]
+offset_left = 1000.0
+offset_top = 16.0
+offset_right = 1104.0
+offset_bottom = 47.0
+text = "reset game"
+
+[node name="back" type="Button" parent="playground"]
+offset_left = 32.0
+offset_top = 24.0
+offset_right = 136.0
+offset_bottom = 55.0
+text = "back"
+
+[node name="code" type="TextEdit" parent="playground"]
+offset_left = 648.0
+offset_top = 56.0
+offset_right = 1120.0
+offset_bottom = 344.0
+
+[node name="consol" type="TextEdit" parent="playground"]
+offset_left = 648.0
+offset_top = 400.0
+offset_right = 1120.0
+offset_bottom = 560.0
+editable = false
+
+[node name="slider" type="HSlider" parent="playground"]
+offset_left = 880.0
+offset_top = 528.0
+offset_right = 1120.0
+offset_bottom = 680.0
+min_value = 1.0
+value = 1.0
+tick_count = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="playground/slider"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 40.0
+text = "1"
+
+[connection signal="pressed" from="playground/PlayAI" to="." method="_on_play_ai_pressed"]
+[connection signal="pressed" from="playground/PlayAnime" to="." method="_on_play_anime_pressed"]
+[connection signal="pressed" from="playground/bestmove" to="." method="_on_bestmove_pressed"]
+[connection signal="pressed" from="playground/iamove" to="." method="_on_iamove_pressed"]
+[connection signal="pressed" from="playground/printbestmove" to="." method="_on_printbestmove_pressed"]
+[connection signal="pressed" from="playground/printmybestmove" to="." method="_on_printmybestmove_pressed"]
+[connection signal="pressed" from="playground/undo" to="." method="_on_undo_pressed"]
+[connection signal="pressed" from="playground/reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="playground/back" to="." method="_on_back_pressed"]
+[connection signal="value_changed" from="playground/slider" to="." method="_on_h_slider_value_changed"]

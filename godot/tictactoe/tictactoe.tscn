@@ -1,109 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmu0fhl6hrr3g"]
+[gd_scene load_steps=3 format=3 uid="uid://46e1pvvmuog3"]
 
 [ext_resource type="Script" path="res://tictactoe/tictactoe.gd" id="1_wxwjy"]
 [ext_resource type="Texture2D" uid="uid://d0bfd8hcmnnnq" path="res://icon.svg" id="2_5sssi"]
 
-[node name="tictactoe" type="Node2D"]
+[node name="game" type="Node2D"]
 script = ExtResource("1_wxwjy")
 
 [node name="Sprite2D" type="TextureButton" parent="."]
 modulate = Color(0, 0, 0, 1)
-offset_left = 384.0
-offset_top = -176.0
-offset_right = 512.0
-offset_bottom = -48.0
+offset_left = 232.0
+offset_top = -216.0
+offset_right = 360.0
+offset_bottom = -88.0
 texture_normal = ExtResource("2_5sssi")
 
-[node name="PlayAI" type="Button" parent="."]
-offset_left = 872.0
-offset_top = 280.0
-offset_right = 1048.0
-offset_bottom = 400.0
-text = "Play AI First"
-
-[node name="PlayAI2" type="Button" parent="."]
-offset_left = 1088.0
-offset_top = 280.0
-offset_right = 1264.0
-offset_bottom = 400.0
-text = "Play AI Second"
-
-[node name="bestmove" type="Button" parent="."]
-offset_left = 760.0
-offset_top = 312.0
-offset_right = 849.0
-offset_bottom = 343.0
-text = "best move
-"
-
-[node name="iamove" type="Button" parent="."]
-offset_left = 736.0
-offset_top = 216.0
-offset_right = 805.0
-offset_bottom = 247.0
-text = "ia move"
-
-[node name="reset" type="Button" parent="."]
-offset_left = 728.0
-offset_top = 360.0
-offset_right = 776.0
-offset_bottom = 391.0
-text = "reset"
-
-[node name="TextEdit" type="TextEdit" parent="."]
-offset_left = 816.0
-offset_top = 80.0
-offset_right = 1272.0
-offset_bottom = 264.0
-text = "import random
-
-def choose_move(tictactoe):
-	bot = tictactoe.player
-	moves = tictactoe.possible_moves()
-	if len(moves) == 9:
-		return [0, 0]
-	best_move = moves[0]
-	minmax = -2
-	for	move in moves:
-		tictactoe.board[move[0]][move[1]] = bot
-		move_value = rec(tictactoe, (bot % 2) + 1, bot, 0)
-		if minmax < move_value:
-			best_move = move
-			minmax = move_value
-		tictactoe.board[move[0]][move[1]] = 0
-	return best_move
-
-def rec(self, current_player, bot, depth):
-	winner = self.check_win()
-	if winner == bot:
-		return 9 - depth
-	elif winner != 0:
-		return -9 + depth
-	elif self.check_draw():
-		return 0
-	if current_player == bot:
-		minmax = -10
-	else:
-		minmax = 10
-	moves = self.possible_moves()
-	for	move in moves:
-		self.board[move[0]][move[1]] = current_player
-		if (current_player == bot):
-			minmax = max(minmax, self.rec((current_player) % 2 + 1, bot,  depth + 1))
-		else:
-			minmax = min(minmax, self.rec((current_player) % 2 + 1, bot,  depth + 1))
-		self.board[move[0]][move[1]] = 0
-	return minmax"
-
-[node name="consol" type="TextEdit" parent="."]
-offset_left = 800.0
-offset_top = 424.0
-offset_right = 1272.0
-offset_bottom = 600.0
-editable = false
-
-[connection signal="pressed" from="PlayAI" to="." method="_on_play_ai_pressed"]
-[connection signal="pressed" from="PlayAI2" to="." method="_on_play_ai_2_pressed"]
-[connection signal="pressed" from="bestmove" to="." method="_on_bestmove_pressed"]
-[connection signal="pressed" from="iamove" to="." method="_on_iamove_pressed"]
-[connection signal="pressed" from="reset" to="." method="_on_reset_pressed"]
+[node name="board" type="Node2D" parent="."]

@@ -41,7 +41,6 @@ def send_message():
 		socketio.emit('message',  {"content": json["content"], "from": from_user, "to": to_user}, room=user)
 	with app.app_context():
 		db.session.add(message)
-		print(message, file=sys.stderr)
 		db.session.commit()
 		return jsonify({"content": json["content"]})
 

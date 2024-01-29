@@ -1,11 +1,9 @@
-extends Node
+extends Node2D
 
-var chat_name
-var me
-var game = ""
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	print("saluto")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

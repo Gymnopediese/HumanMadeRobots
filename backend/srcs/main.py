@@ -2,13 +2,17 @@
 from app import app, db, socketio
 from user import *
 from message import *
-from tictactoe.tictactoe import *
+from game.MultPlayer import *
 from notif import *
 from friend import *
-
+from game.playground import *
+from game.AIScript import *
 with app.app_context():
     # db.drop_all()
     db.create_all()
+from game.TicTacToe import TicTacToe
+from game.Maze import Maze
+from game.HighLow import HighLow
 
 
 @app.route('/', methods=['GET', 'POST'])

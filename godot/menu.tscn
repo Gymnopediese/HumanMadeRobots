@@ -37,6 +37,16 @@ offset_bottom = 76.0
 text = "Users
 "
 
+[node name="Logout2" type="Node2D" parent="."]
+script = ExtResource("3_wijvm")
+
+[node name="Button" type="Button" parent="Logout2"]
+offset_left = 859.0
+offset_top = 518.0
+offset_right = 955.0
+offset_bottom = 549.0
+text = "games"
+
 [node name="Logout" type="Node2D" parent="."]
 script = ExtResource("3_wijvm")
 
@@ -110,4 +120,5 @@ offset_right = 167.0
 offset_bottom = 76.0
 text = "Notifs"
 
+[connection signal="pressed" from="Logout2/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Logout/Button" to="Logout" method="_on_button_pressed"]
